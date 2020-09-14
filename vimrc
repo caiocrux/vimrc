@@ -1,6 +1,6 @@
-""""""""""Runtime Path Manipulation""""""""""""""
+"Runtime Path Manipulation
 execute pathogen#infect()
-"""""""""""""""""Ctags Setting"""""""""""""""""""
+" Ctags Setting
 filetype plugin on
 :set tags=/home/tpv/dev/uatu/pc/tags
 nmap <F2>  :set invnumber<CR>
@@ -10,16 +10,17 @@ nmap <F5>  :NERDTree<CR>
 nmap <F6>  :NERDTreeClose<CR>
 
 colorscheme zellner
+
 syntax on 
 
-"set mouse=a
-"""""""""""""""""Taglist settings"""""""""""""""""
+" Taglist settings
 let Tlist_Auto_Open = 0
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_WinWidth = 55
-"""""""""""""""""Python Setting"""""""""""""""""""
+
+" Python Setting
 " enable syntax highlighting
 syntax enable
 " set tabs to have 4 spaces
