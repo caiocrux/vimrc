@@ -8,9 +8,9 @@ nmap <F4>  :tabnext<CR>
 nmap <F3>  :tabprevious<CR>
 nmap <F5>  :NERDTree<CR>
 nmap <F6>  :NERDTreeClose<CR>
-
+nmap <F8>  :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nmap <F7> :call ColorColumn()<CR>
 colorscheme zellner
-
 syntax on 
 
 " Taglist settings
@@ -38,3 +38,5 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 autocmd Filetype python set omnifunc=pythoncomplete#Complete
+nnoremap <F7> :execute "set colorcolumn="
+                  \ . (&colorcolumn == "" ? "80" : "")<CR>
