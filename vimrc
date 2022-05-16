@@ -6,10 +6,10 @@ filetype plugin on
 nmap <F2>  :set invnumber<CR>
 nmap <F4>  :tabnext<CR>
 nmap <F3>  :tabprevious<CR>
-nmap <F5>  :NERDTree<CR>
-nmap <F6>  :NERDTreeClose<CR>
-nmap <F8>  :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-nmap <F7> :call ColorColumn()<CR>
+
+nmap <F5>  ::NERDTreeToggle<CR>
+nmap <F6>  :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nmap <F7>  :call ColorColumn()<CR>
 colorscheme zellner
 syntax on 
 
