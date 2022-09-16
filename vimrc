@@ -2,7 +2,9 @@
 execute pathogen#infect()
 " Ctags Setting
 filetype plugin on
-:set tags=/home/tpv/dev/uatu/pc/tags
+:set tags=/home/ccruz/projects/dzs/slmsc/tags
+:set splitright
+:set splitbelow
 nmap <F2>  :set invnumber<CR>
 nmap <F4>  :tabnext<CR>
 nmap <F3>  :tabprevious<CR>
@@ -40,3 +42,13 @@ let python_highlight_all = 1
 autocmd Filetype python set omnifunc=pythoncomplete#Complete
 nnoremap <F7> :execute "set colorcolumn="
                   \ . (&colorcolumn == "" ? "80" : "")<CR>
+
+function! FollowTag()
+  if !exists("w:tagbrowse")
+    vsplit
+    let w:tagbrowse=1
+  endif
+  execute "tag " . expand("<cword>")
+endfunction
+
+nnoremap <c-]> :call FollowTag()<CR>
