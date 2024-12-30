@@ -12,7 +12,9 @@ nmap <F3>  :tabprevious<CR>
 nmap <F5>  ::NERDTreeToggle<CR>
 nmap <F6>  :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nmap <F7>  :call ColorColumn()<CR>
-colorscheme zellner
+nnoremap <F9> :TagbarToggle<CR>
+
+colorscheme industry
 syntax on 
 
 " Taglist settings
@@ -50,5 +52,23 @@ function! FollowTag()
   endif
   execute "tag " . expand("<cword>")
 endfunction
-
 nnoremap <c-]> :call FollowTag()<CR>
+
+" Format selected code with clang-format
+vmap <F8> :!clang-format<CR>
+
+" Format the entire file with F8 in normal mode
+nmap <F8> :%!clang-format<CR>
+
+
+" Format the entire file with F8 in normal mode
+" Move between windows with Shift + Arrow keys
+" Resize windows with Shift + Arrow keys
+nnoremap <S-Left>  :vertical resize -2<CR>
+nnoremap <S-Right> :vertical resize +2<CR>
+nnoremap <S-Up>    :resize +2<CR>
+nnoremap <S-Down>  :resize -2<CR>
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/tagbar'
+call plug#end()
+let g:tagbar_left = 1
