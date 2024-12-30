@@ -70,5 +70,6 @@ nnoremap <S-Up>    :resize +2<CR>
 nnoremap <S-Down>  :resize -2<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/tagbar'
+Plug 'preservim/nerdtree'
 call plug#end()
 let g:tagbar_left = 1
