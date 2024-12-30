@@ -2,7 +2,7 @@
 execute pathogen#infect()
 " Ctags Setting
 filetype plugin on
-:set tags=/home/ccruz/projects/dzs/slmsc/tags
+:set tags=
 :set splitright
 :set splitbelow
 nmap <F2>  :set invnumber<CR>
