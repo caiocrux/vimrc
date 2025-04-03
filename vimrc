@@ -2,7 +2,7 @@
 execute pathogen#infect()
 " Ctags Setting
 filetype plugin on
-:set tags=
+:set tags=/home/caio-cruz/projects/sd_card/linux-yocto-01b1f32be4b0eb108c00b16ec4eef29ce7fa9546/tags
 :set splitright
 :set splitbelow
 nmap <F2>  :set invnumber<CR>
@@ -71,5 +71,30 @@ nnoremap <S-Down>  :resize -2<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/tagbar'
 Plug 'preservim/nerdtree'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP support
+Plug 'dense-analysis/ale' " Syntax checking & linting
+Plug 'tpope/vim-surround' " Useful for editing
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 let g:tagbar_left = 1
+
+" rust stuff
+
+" Enable Rust syntax highlighting and auto-formatting
+let g:rustfmt_autosave = 1
+" Use ALE for real-time linting and formatting
+let g:ale_fixers = {'rust': ['rustfmt']}
+let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+
+" Keybindings for Rust development
+autocmd FileType rust nnoremap <leader>b :!cargo build<CR>
+autocmd FileType rust nnoremap <leader>r :!cargo run<CR>
+autocmd FileType rust nnoremap <leader>t :!cargo test<CR>
+
+" Set tabs to 4 spaces
+autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 expandtab
+
