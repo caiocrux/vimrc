@@ -115,3 +115,19 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_WinWidth = 55
+set clipboard=unnamedplus
+
+" ============================
+" Git Commit Message Settings
+" ============================
+autocmd FileType gitcommit call s:SetupGitCommitFormatting()
+
+function! s:SetupGitCommitFormatting()
+  setlocal textwidth=72               " Wrap commit body at 72 chars
+  setlocal colorcolumn=51,73          " Guide: 50 for subject, 72 for body
+  setlocal formatoptions+=tq          " Wrap text, allow 'gq' formatting
+  setlocal spell                      " Enable spellcheck
+  setlocal wrap                       " Soft line wrapping
+  setlocal linebreak                  " Break lines at word boundaries
+endfunction
+
