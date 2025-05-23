@@ -97,7 +97,7 @@ nnoremap <S-Up>    :resize +2<CR>
 nnoremap <S-Down>  :resize -2<CR>
 
 " Tags Navigation
-:set tags=/home/caio-cruz/projects/windriver/repos/zl3073x/tags
+:set tags=/home/caio-cruz/tags
 function! FollowTag()
   if !exists("w:tagbrowse")
     vsplit
@@ -117,17 +117,23 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_WinWidth = 55
 set clipboard=unnamedplus
 
-" ============================
-" Git Commit Message Settings
-" ============================
-autocmd FileType gitcommit call s:SetupGitCommitFormatting()
+" ======================
+"  Git Commit Formatting
+" ======================
 
-function! s:SetupGitCommitFormatting()
-  setlocal textwidth=72               " Wrap commit body at 72 chars
-  setlocal colorcolumn=51,73          " Guide: 50 for subject, 72 for body
-  setlocal formatoptions+=tq          " Wrap text, allow 'gq' formatting
-  setlocal spell                      " Enable spellcheck
-  setlocal wrap                       " Soft line wrapping
-  setlocal linebreak                  " Break lines at word boundaries
-endfunction
+" Enable proper formatting in git commit messages
+autocmd FileType gitcommit setlocal textwidth=72 colorcolumn=51,73 formatoptions+=t
 
+" Highlight 51st and 73rd columns to guide line limits (50-char summary, 72-char body)
+highlight ColorColumn ctermbg=darkgray guibg=#444444
+
+" Show spellcheck in commit messages to avoid typos
+autocmd FileType gitcommit setlocal spell
+
+" Manual paragraph formatting in visual mode with <leader>gq
+let mapleader = "\<Space>"
+vmap <leader>gq gq
+
+" Optional: ruler and line numbers for easier formatting awareness
+set ruler
+set number
