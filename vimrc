@@ -97,7 +97,7 @@ nnoremap <S-Up>    :resize +2<CR>
 nnoremap <S-Down>  :resize -2<CR>
 
 " Tags Navigation
-:set tags=/home/caio-cruz/tags
+:set tags=/home/caio-cruz/projects/personal/esp32/repo/project/tags
 function! FollowTag()
   if !exists("w:tagbrowse")
     vsplit
